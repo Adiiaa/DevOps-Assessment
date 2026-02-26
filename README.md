@@ -110,4 +110,9 @@ To https://github.com/Adiiaa/DevOps-Assessment.git
 
 Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
 $ git add .
-
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git commit -m "feat: add test.java with placeholder greeting logic"
+[ft/setup b65da97] feat: add test.java with placeholder greeting logic
+2 files changed, 125 insertions(+)
+create mode 100644 README.md
+create mode 100644 src/test/java/test.java
