@@ -174,3 +174,56 @@ a5b35bf..6ee1786  ft/setup -> ft/setup
 Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
 $ git stash drop stash@{0}
 Dropped stash@{0} (b3ffe91f32b36c23e1311fd5c71c467267f6c3db)
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git checkout main
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (main)
+$ git add .
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (main)
+$ git commit -m "docs: changing the person to greet in test.java file"
+[main 23e43d8] docs: changing the person to greet in test.java file
+1 file changed, 9 insertions(+)
+create mode 100644 src/test/java/test.java
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 585 bytes | 48.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Adiiaa/DevOps-Assessment.git
+a5b35bf..23e43d8  main -> main
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (main)
+$ git checkout ft/setup
+Switched to branch 'ft/setup'
+Your branch is up to date with 'origin/ft/setup'.
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git merge main
+Auto-merging src/test/java/test.java
+CONFLICT (add/add): Merge conflict in src/test/java/test.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup|MERGING)
+$ git add .
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup|MERGING)
+$ git commit -m "merge: Resolving confilcts between main and ft/setup"
+[ft/setup 3d10a8d] merge: Resolving confilcts between main and ft/setup
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git push
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 480 bytes | 160.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/Adiiaa/DevOps-Assessment.git
+25becdc..3d10a8d  ft/setup -> ft/setup
+
