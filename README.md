@@ -116,3 +116,61 @@ $ git commit -m "feat: add test.java with placeholder greeting logic"
 2 files changed, 125 insertions(+)
 create mode 100644 README.md
 create mode 100644 src/test/java/test.java
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git stash
+Saved working directory and index state WIP on ft/setup: b65da97 feat: add test.java with placeholder greeting logic
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git stash list
+stash@{0}: WIP on ft/setup: b65da97 feat: add test.java with placeholder greeting logic
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git stash apply stash@{0}
+On branch ft/setup
+Your branch is ahead of 'origin/ft/setup' by 1 commit.
+(use "git push" to publish your local commits)
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified:   README.md
+modified:   src/test/java/test.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git status
+On branch ft/setup
+Your branch is ahead of 'origin/ft/setup' by 1 commit.
+(use "git push" to publish your local commits)
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified:   README.md
+modified:   src/test/java/test.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git add .
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git commit -m "docs: Restoring stash changes - updated README and test.java files"
+[ft/setup 6ee1786] docs: Restoring stash changes - updated README and test.java files
+2 files changed, 7 insertions(+), 2 deletions(-)
+
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git push origin ft/setup
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (14/14), 2.08 KiB | 151.00 KiB/s, done.
+Total 14 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/Adiiaa/DevOps-Assessment.git
+a5b35bf..6ee1786  ft/setup -> ft/setup
+Adia Uwase@DESKTOP-QOVNG9F MINGW64 ~/OneDrive/Desktop/QA testing training/DevOps-Assessment (ft/setup)
+$ git stash drop stash@{0}
+Dropped stash@{0} (b3ffe91f32b36c23e1311fd5c71c467267f6c3db)
