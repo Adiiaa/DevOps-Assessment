@@ -32,20 +32,25 @@ public class SortingTest {
         }
 
         WebDriver driver = new ChromeDriver(options);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         try {
             driver.get("https://practicesoftwaretesting.com/");
+            wait.until(webDriver ->
+                    ((JavascriptExecutor) webDriver)
+                            .executeScript("return document.readyState")
+                            .equals("complete"));
 
             try {
                 WebElement cookieBtn = wait.until(
                         ExpectedConditions.elementToBeClickable(
                                 By.cssSelector("[data-test='consent-accept']")));
                 cookieBtn.click();
-            } catch (Exception ignored) {}
-
+            } catch (TimeoutException e) {
+                System.out.println("No cookie banner displayed.");
+            }
             WebElement sortDropdown = wait.until(
-                    ExpectedConditions.presenceOfElementLocated(
+                    ExpectedConditions.elementToBeClickable(
                             By.cssSelector("select[data-test='sort']")));
 
             ((JavascriptExecutor) driver).executeScript(
