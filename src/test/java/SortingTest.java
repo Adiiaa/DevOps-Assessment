@@ -23,10 +23,13 @@ public class SortingTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--window-size=1920,1080");
+
+        if (System.getenv("CI") != null) {
+            options.addArguments("--headless=new");
+        }
 
         WebDriver driver = new ChromeDriver(options);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -34,17 +37,12 @@ public class SortingTest {
         try {
             driver.get("https://practicesoftwaretesting.com/");
 
-            Thread.sleep(3000);
             try {
-                WebElement cookieBtn = driver.findElement(
-                        By.cssSelector("[data-test='consent-accept']"));
-                if (cookieBtn.isDisplayed()) {
-                    cookieBtn.click();
-                    Thread.sleep(1000);
-                }
-            } catch (NoSuchElementException e) {
-                System.out.println("No cookie banner found, continuing...");
-            }
+                WebElement cookieBtn = wait.until(
+                        ExpectedConditions.elementToBeClickable(
+                                By.cssSelector("[data-test='consent-accept']")));
+                cookieBtn.click();
+            } catch (Exception ignored) {}
 
             WebElement sortDropdown = wait.until(
                     ExpectedConditions.presenceOfElementLocated(
@@ -62,6 +60,7 @@ public class SortingTest {
 
             Thread.sleep(3000);
 
+
             List<WebElement> productElements = wait.until(
                     ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             By.cssSelector("[data-test='product-name']")));
@@ -71,7 +70,7 @@ public class SortingTest {
                 actualNames.add(element.getText().trim());
             }
 
-            System.out.println("Actual names from page: " + actualNames);
+                System.out.println("Actual names from page: " + actualNames);
 
             List<String> expectedSortedNames = new ArrayList<>(actualNames);
             Collections.sort(expectedSortedNames);
@@ -80,8 +79,6 @@ public class SortingTest {
 
             assertEquals(expectedSortedNames, actualNames,
                     "Products are NOT sorted alphabetically A to Z!");
-
-            System.out.println("TEST PASSED: Products are sorted A to Z correctly!");
 
         } finally {
             driver.quit();
